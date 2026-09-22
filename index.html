@@ -46,6 +46,32 @@
   .musicBtn:hover{background:#7ED321;color:#000}
   .musicBtn.on{background:#FFD700;border-color:#FFD700;color:#000;animation:pulse 1s infinite}
 
+  /* LIVE PLAYER COUNT */
+  .pcpanel{max-width:960px;margin:24px auto;background:linear-gradient(160deg,#041428 0%,#020a16 50%,#041428 100%);border:3px solid #50B4FF;border-radius:14px;padding:26px 20px;text-align:center;position:relative;overflow:hidden;box-shadow:0 0 45px rgba(80,180,255,0.3)}
+  .pcpanel:before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 8px,rgba(80,180,255,0.04) 8px,rgba(80,180,255,0.04) 16px);pointer-events:none}
+  @keyframes pcGlow{0%,100%{box-shadow:0 0 45px rgba(80,180,255,0.3)}50%{box-shadow:0 0 85px rgba(80,180,255,0.6)}}
+  .pcpanel{animation:pcGlow 3.5s ease-in-out infinite}
+  .pcTitle{font-size:22px;font-weight:900;letter-spacing:4px;color:#50B4FF;text-shadow:2px 2px #000,0 0 14px rgba(80,180,255,0.7);margin:0 0 4px}
+  .pcLive{display:inline-block;width:10px;height:10px;background:#0f0;border-radius:50%;margin-right:8px;animation:pulse 1s infinite;vertical-align:middle;box-shadow:0 0 10px #0f0}
+  .pcSub{font-size:12px;color:#7ab8d8;letter-spacing:2px;margin-bottom:20px}
+  .pcRow{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+  .pcBox{background:rgba(0,0,0,0.65);border:2px solid #2a5a80;border-radius:10px;padding:16px 12px;min-width:150px;position:relative;overflow:hidden}
+  .pcBox:after{content:'';position:absolute;top:0;left:-100%;width:100%;height:2px;background:linear-gradient(90deg,transparent,#50B4FF,transparent);animation:pcScan 2.5s linear infinite}
+  @keyframes pcScan{to{left:100%}}
+  .pcBox.gold{border-color:#FFD700}
+  .pcBox.gold:after{background:linear-gradient(90deg,transparent,#FFD700,transparent)}
+  .pcBox.green{border-color:#7ED321}
+  .pcBox.green:after{background:linear-gradient(90deg,transparent,#7ED321,transparent)}
+  .pcNum{font-size:40px;font-weight:900;color:#50B4FF;text-shadow:0 0 16px rgba(80,180,255,0.8);line-height:1;transition:all .3s}
+  .pcBox.gold .pcNum{color:#FFD700;text-shadow:0 0 16px rgba(255,215,0,0.8)}
+  .pcBox.green .pcNum{color:#7ED321;text-shadow:0 0 16px rgba(126,211,33,0.8)}
+  .pcNum.tick{transform:scale(1.12);filter:brightness(1.5)}
+  .pcLab{font-size:10px;color:#7ab8d8;letter-spacing:2px;margin-top:7px;text-transform:uppercase}
+  .pcBreakdown{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .pcTag{background:rgba(0,0,0,0.55);border:1px solid #2a5a80;border-radius:20px;padding:6px 14px;font-size:11px;color:#9dd4f0;letter-spacing:1px}
+  .pcTag b{color:#FFD700}
+  .pcNote{margin-top:14px;font-size:11px;color:#5a8aa8;letter-spacing:1px}
+
   /* STAGE */
   .stage{max-width:960px;margin:24px auto;background:linear-gradient(180deg,#0b0f1a 0%,#141a2b 100%);border:3px solid #222c44;border-radius:14px;padding:0;overflow:hidden;position:relative;min-height:420px}
   .stage.live{border-color:#FFD700;box-shadow:0 0 60px rgba(255,215,0,0.3)}
@@ -54,15 +80,15 @@
   .stageLive{display:none;color:#FFD700;font-weight:900;animation:blink 1s infinite}
   .stage.live .stageLive{display:inline}
   .stageFloor{position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(180deg,#1a1428,#0d0a16);border-top:3px solid #3a2a66}
-  .crowd{position:absolute;left:0;right:0;bottom:70px;height:220px;display:flex;align-items:flex-end;justify-content:center;gap:10px;padding:0 16px;flex-wrap:wrap-reverse;align-content:flex-end}
+  .crowd{position:absolute;left:0;right:0;bottom:70px;height:240px;display:flex;align-items:flex-end;justify-content:center;gap:6px;padding:0 10px 4px;flex-wrap:wrap-reverse;align-content:flex-end;overflow:hidden}
   .spotlight{position:absolute;top:0;width:180px;height:100%;background:radial-gradient(ellipse at top,rgba(255,255,120,0.18),transparent 70%);pointer-events:none;animation:sway 4s ease-in-out infinite alternate}
   .spotlight.s2{animation-delay:-2s;animation-duration:5s}
   @keyframes sway{from{transform:translateX(-40px)}to{transform:translateX(40px)}}
 
   /* DANCER BOTS */
-  .dancer{position:relative;width:44px;text-align:center;cursor:pointer;transition:transform .1s}
-  .dancer .head{width:22px;height:22px;border-radius:50%;margin:0 auto;border:2px solid #000}
-  .dancer .body{width:18px;height:26px;margin:2px auto 0;border-radius:4px 4px 2px 2px;border:2px solid #000}
+  .dancer{position:relative;width:38px;text-align:center;cursor:pointer;transition:transform .1s;flex-shrink:0}
+  .dancer .head{width:20px;height:20px;border-radius:50%;margin:0 auto;border:2px solid #000}
+  .dancer .body{width:16px;height:24px;margin:2px auto 0;border-radius:4px 4px 2px 2px;border:2px solid #000}
   .dancer .legs{display:flex;justify-content:center;gap:3px;margin-top:2px}
   .dancer .leg{width:6px;height:16px;border-radius:2px;background:#000;border:1px solid #333;transform-origin:top center}
   .dancer .arms{display:flex;justify-content:center;gap:6px;margin-top:-16px;position:relative;z-index:1}
@@ -85,9 +111,9 @@
   .dancing .body{box-shadow:0 0 8px currentColor}
 
   /* SPECIAL STARS (MJ + King Von) */
-  .star{width:56px}
-  .star .head{width:28px;height:28px;border-width:3px;box-shadow:0 0 14px #FFD700}
-  .star .body{width:24px;height:34px}
+  .star{width:48px}
+  .star .head{width:24px;height:24px;border-width:3px;box-shadow:0 0 14px #FFD700}
+  .star .body{width:20px;height:30px}
   .star .nametag{font-size:9px;color:#FFD700;font-weight:900;border:1px solid #FFD700;letter-spacing:1px}
   .star.mj .body{background:linear-gradient(180deg,#fff,#ccc);border-color:#888}
   .star.kv .body{background:linear-gradient(180deg,#3a5,#274);border-color:#132}
@@ -179,6 +205,58 @@
   .legendQuote .qwho{display:block;font-weight:900;font-style:normal;color:#FFD700;font-size:10px;letter-spacing:2px;margin-bottom:5px}
   .legendRank{display:inline-block;background:#FFD700;color:#000;font-weight:900;padding:8px 22px;border-radius:30px;letter-spacing:3px;font-size:13px;margin-top:14px;box-shadow:0 0 20px rgba(255,215,0,0.6)}
   .legendBones{font-size:26px;margin-top:16px;letter-spacing:8px;animation:legendPulse 2s ease-in-out infinite}
+
+  /* RESPONSIVE — prevent overlapping */
+  @media (max-width:760px){
+    .logo{font-size:34px;letter-spacing:2px}
+    .hero{padding:30px 12px 24px}
+    .lime{padding:10px 16px;font-size:13px;margin:6px}
+    .cdnum{font-size:30px}
+    .cdbox{min-width:70px;padding:10px 6px}
+    .cdtitle{font-size:20px}
+    .cdpanel.live .cdtitle{font-size:26px}
+    .pcNum{font-size:26px}
+    .pcBox{min-width:110px;padding:12px 8px}
+    .pcTitle{font-size:16px;letter-spacing:2px}
+    .legendName{font-size:34px;letter-spacing:3px}
+    .doggo{font-size:70px}
+    .legendStat{min-width:88px;padding:10px 10px}
+    .legendStat .v{font-size:22px}
+    .stageHeader{flex-direction:column;gap:6px;text-align:center}
+    .stageTitle{font-size:13px}
+    .crowd{gap:4px;padding:0 6px 4px;height:200px}
+    .dancer{width:30px}
+    .dancer .head{width:16px;height:16px}
+    .dancer .body{width:12px;height:18px}
+    .star{width:38px}
+    .star .head{width:20px;height:20px}
+    .star .body{width:16px;height:22px}
+    .dancer .nametag{font-size:6px}
+    .star .nametag{font-size:7px}
+    .msg{max-width:95%;font-size:12px}
+    .chatLog{height:180px}
+    .abuseBtns button{padding:8px 10px;font-size:10px}
+    .legendQuotes{flex-direction:column;align-items:center}
+    .legendQuote{max-width:100%}
+    .panel{padding:14px 12px;margin:16px 8px}
+    .cdpanel,.pcpanel,.legend,.chatbox,.abuse{margin:16px 8px}
+    .cdpanel{padding:20px 12px}
+    .pcpanel{padding:18px 10px}
+    .legend{padding:24px 14px}
+  }
+  @media (max-width:420px){
+    .pcRow{gap:8px}
+    .pcBox{min-width:96px}
+    .pcNum{font-size:20px}
+    .cdnum{font-size:24px}
+    .cdbox{min-width:62px}
+    .legendStat{min-width:78px}
+    .crowd{height:180px}
+    .dancer{width:26px}
+    .star{width:32px}
+    .doggo{font-size:56px}
+    .legendName{font-size:26px}
+  }
 </style>
 
 <div class="hero">
@@ -204,6 +282,39 @@
   </div>
   <div class="cddate" id="cd-note">September 25, 2026 — 5:34 PM (local time)</div>
   <button class="musicBtn" id="musicBtn">♪ PLAY THEME SONG</button>
+</div>
+
+<!-- LIVE PLAYER COUNT -->
+<div class="pcpanel" id="pcpanel">
+  <div class="pcTitle"><span class="pcLive"></span>LIVE PLAYER COUNT</div>
+  <div class="pcSub">PLAYTREE GLOBAL SERVERS — REAL-TIME</div>
+  <div class="pcRow">
+    <div class="pcBox green">
+      <div class="pcNum" id="pc-online">0</div>
+      <div class="pcLab">Players Online</div>
+    </div>
+    <div class="pcBox gold">
+      <div class="pcNum" id="pc-bots">0</div>
+      <div class="pcLab">Bot Players</div>
+    </div>
+    <div class="pcBox">
+      <div class="pcNum" id="pc-total">0</div>
+      <div class="pcLab">Total Active</div>
+    </div>
+    <div class="pcBox">
+      <div class="pcNum" id="pc-peak">0</div>
+      <div class="pcLab">All-Time Peak</div>
+    </div>
+  </div>
+  <div class="pcBreakdown">
+    <span class="pcTag">🌍 Servers: <b>12,400</b> Online</span>
+    <span class="pcTag">🤖 Bot Players: <b>100,000,000</b></span>
+    <span class="pcTag">🐕 Doggo Army: <b>1,000,000</b></span>
+    <span class="pcTag">🚽 Astro Toilet NPCs: <b>50,000,000</b></span>
+    <span class="pcTag">⚔ Active Matches: <b id="pc-matches">0</b></span>
+    <span class="pcTag">📊 Uptime: <b id="pc-uptime">0d 0h 0m</b></span>
+  </div>
+  <div class="pcNote">Counts update live every second • 100,000,000 bot players always active across all regions</div>
 </div>
 
 <!-- STAGE / DANCING BOTS -->
@@ -875,6 +986,61 @@ document.getElementById("abuseBtns").addEventListener("click", function(e){
   if (!btn) return;
   triggerAbuse(btn.getAttribute("data-a"), false);
 });
+
+/* ============ LIVE PLAYER COUNT ============ */
+var BOTS_BASE = 100000000; /* 100,000,000 bot players */
+var REAL_BASE = 8473921;
+var PEAK_BASE = 14283950;
+var matches = 482931;
+var startTime = Date.now();
+var pcEl = {
+  online: document.getElementById("pc-online"),
+  bots: document.getElementById("pc-bots"),
+  total: document.getElementById("pc-total"),
+  peak: document.getElementById("pc-peak"),
+  matches: document.getElementById("pc-matches"),
+  uptime: document.getElementById("pc-uptime")
+};
+function fmt(n){
+  if (n >= 1000000000) return (n/1000000000).toFixed(2) + "B";
+  if (n >= 1000000) return (n/1000000).toFixed(2) + "M";
+  if (n >= 1000) return (n/1000).toFixed(1) + "K";
+  return n.toLocaleString();
+}
+function fmtFull(n){ return n.toLocaleString(); }
+function tickPC(){
+  /* Real players fluctuate ±0.3% */
+  var realDrift = Math.floor((Math.random() - 0.48) * REAL_BASE * 0.003);
+  var real = REAL_BASE + realDrift;
+  /* 100M bots always online — small jitter for "liveness" */
+  var bots = BOTS_BASE + Math.floor(Math.random() * 20000) - 10000;
+  var total = real + bots;
+  /* Peak slowly grows */
+  if (total > PEAK_BASE) PEAK_BASE = total;
+  var peak = Math.max(PEAK_BASE, total);
+  /* Matches fluctuate */
+  matches += Math.floor((Math.random() - 0.45) * 80);
+  if (matches < 400000) matches = 400000 + Math.floor(Math.random() * 10000);
+
+  pcEl.online.textContent = fmtFull(real);
+  pcEl.bots.textContent = "100,000,000";
+  pcEl.total.textContent = fmt(total);
+  pcEl.peak.textContent = fmt(peak);
+  pcEl.matches.textContent = fmtFull(matches);
+
+  /* Flash animation on change */
+  [pcEl.online, pcEl.total, pcEl.peak].forEach(function(el){
+    el.classList.add("tick");
+    setTimeout(function(){ el.classList.remove("tick"); }, 350);
+  });
+
+  /* Uptime */
+  var up = Math.floor((Date.now() - startTime) / 1000);
+  var d = Math.floor(up / 86400), h = Math.floor((up % 86400) / 3600), m = Math.floor((up % 3600) / 60);
+  pcEl.uptime.textContent = d + "d " + h + "h " + m + "m";
+}
+tickPC();
+setInterval(tickPC, 1000);
 
 /* ============ INIT ============ */
 spawnStars();
