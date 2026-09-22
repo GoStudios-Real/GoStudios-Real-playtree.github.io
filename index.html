@@ -149,6 +149,36 @@
 
   footer{text-align:center;padding:24px;color:#666;font-size:12px}
   h2{color:#7ED321;letter-spacing:2px;border-bottom:1px solid #2F6B00;padding-bottom:8px}
+
+  /* LEGEND: DOGGO */
+  .legend{max-width:960px;margin:24px auto;background:linear-gradient(160deg,#1a1405 0%,#0d0a02 60%,#1a1405 100%);border:3px solid #FFD700;border-radius:16px;padding:34px 26px;text-align:center;position:relative;overflow:hidden;box-shadow:0 0 50px rgba(255,215,0,0.25), inset 0 0 80px rgba(255,215,0,0.05)}
+  .legend:before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(255,215,0,0.03) 14px,rgba(255,215,0,0.03) 28px);pointer-events:none}
+  @keyframes legendGlow{0%,100%{box-shadow:0 0 50px rgba(255,215,0,0.25), inset 0 0 80px rgba(255,215,0,0.05)}50%{box-shadow:0 0 90px rgba(255,215,0,0.55), inset 0 0 110px rgba(255,215,0,0.12)}}
+  .legend{animation:legendGlow 4s ease-in-out infinite}
+  .legendBanner{display:inline-block;background:linear-gradient(90deg,#FFD700,#ff9500,#FFD700);color:#000;padding:10px 26px;border-radius:8px;font-weight:900;letter-spacing:4px;font-size:15px;margin-bottom:18px;box-shadow:0 4px 18px rgba(255,215,0,0.5);animation:legendSlide 3s ease-in-out infinite}
+  @keyframes legendSlide{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .legendName{font-size:52px;font-weight:900;letter-spacing:6px;color:#FFD700;text-shadow:0 0 20px rgba(255,215,0,0.9),3px 3px #000;margin:6px 0 2px;animation:legendPulse 2s ease-in-out infinite}
+  @keyframes legendPulse{0%,100%{transform:scale(1);text-shadow:0 0 20px rgba(255,215,0,0.9),3px 3px #000}50%{transform:scale(1.04);text-shadow:0 0 40px rgba(255,215,0,1),3px 3px #000,0 0 60px rgba(255,215,0,0.5)}}
+  .legendSub{font-size:16px;color:#ffe89a;letter-spacing:3px;margin-bottom:24px;font-weight:900}
+  .doggoWrap{position:relative;display:inline-block;margin:10px 0 20px}
+  .doggo{font-size:100px;line-height:1;display:inline-block;animation:doggoBounce 1.4s ease-in-out infinite;filter:drop-shadow(0 0 25px rgba(255,215,0,0.7))}
+  @keyframes doggoBounce{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-22px) rotate(4deg) scale(1.08)}}
+  .doggoCrown{position:absolute;top:-26px;left:50%;transform:translateX(-50%);font-size:42px;animation:crownFloat 1.4s ease-in-out infinite}
+  @keyframes crownFloat{0%,100%{transform:translateX(-50%) translateY(0) rotate(-6deg)}50%{transform:translateX(-50%) translateY(-10px) rotate(6deg)}}
+  .doggoAura{position:absolute;inset:-40px;background:radial-gradient(circle,rgba(255,215,0,0.35),transparent 70%);border-radius:50%;animation:auraPulse 2s ease-in-out infinite;pointer-events:none;z-index:-1}
+  @keyframes auraPulse{0%,100%{transform:scale(1);opacity:0.7}50%{transform:scale(1.25);opacity:1}}
+  .legendTitle{font-size:18px;color:#FFD700;font-weight:900;letter-spacing:5px;margin:4px 0 16px;text-transform:uppercase}
+  .legendStats{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+  .legendStat{background:rgba(0,0,0,0.6);border:2px solid #FFD700;border-radius:10px;padding:12px 16px;min-width:110px}
+  .legendStat .v{font-size:30px;font-weight:900;color:#FFD700;text-shadow:0 0 12px rgba(255,215,0,0.7);line-height:1}
+  .legendStat .l{font-size:10px;color:#c9a7ff;letter-spacing:2px;margin-top:5px;text-transform:uppercase}
+  .legendLore{max-width:720px;margin:0 auto 20px;font-size:13px;line-height:1.8;color:#f5e6b8;text-align:center}
+  .legendLore b{color:#FFD700}
+  .legendQuotes{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .legendQuote{background:rgba(255,215,0,0.07);border-left:4px solid #FFD700;padding:10px 16px;border-radius:0 8px 8px 0;font-size:12px;color:#ffe89a;max-width:290px;font-style:italic}
+  .legendQuote .qwho{display:block;font-weight:900;font-style:normal;color:#FFD700;font-size:10px;letter-spacing:2px;margin-bottom:5px}
+  .legendRank{display:inline-block;background:#FFD700;color:#000;font-weight:900;padding:8px 22px;border-radius:30px;letter-spacing:3px;font-size:13px;margin-top:14px;box-shadow:0 0 20px rgba(255,215,0,0.6)}
+  .legendBones{font-size:26px;margin-top:16px;letter-spacing:8px;animation:legendPulse 2s ease-in-out infinite}
 </style>
 
 <div class="hero">
@@ -224,6 +254,41 @@
     <button data-a="boss">SUMMON ROOT TITAN</button>
     <button data-a="disco">DISCO MODE</button>
   </div>
+</div>
+
+<!-- LEGEND: DOGGO -->
+<div class="legend" id="legend">
+  <div class="legendBanner">★ PLAYTREE HALL OF LEGENDS ★</div>
+  <div class="legendName">DOGGO</div>
+  <div class="legendSub">THE PLAYTREE LEGEND</div>
+  <div class="doggoWrap">
+    <div class="doggoAura"></div>
+    <div class="doggoCrown">👑</div>
+    <div class="doggo">🐕</div>
+  </div>
+  <div class="legendTitle">— Eternal Champion of the Tree —</div>
+  <div class="legendStats">
+    <div class="legendStat"><div class="v">9999</div><div class="l">Win Streak</div></div>
+    <div class="legendStat"><div class="v">1M+</div><div class="l">Astro Toilets WOOF'd</div></div>
+    <div class="legendStat"><div class="v">∞</div><div class="l">Good Boy Points</div></div>
+    <div class="legendStat"><div class="v">S+</div><div class="l">Rank</div></div>
+    <div class="legendStat"><div class="v">0</div><div class="l">Losses</div></div>
+  </div>
+  <div class="legendLore">
+    In the beginning there was only <b>The Tree</b>. Then came <b>Doggo</b> — the fluffiest, fastest,
+    most legendary good boy the PlayTree universe has ever known. With a single bark he shattered the
+    <b>Hollow Throne</b>, with a tail wag he healed the whole server, and with one look he made
+    every <b>Astro Toilet</b> self-destruct out of shame. Rhys built the game. Willow wrote the code.
+    But <b>Doggo is the Legend</b>. His paw print is carved into the root of the World Tree itself,
+    and every Season 1 battle pass is blessed by his golden nose.
+  </div>
+  <div class="legendQuotes">
+    <div class="legendQuote"><span class="qwho">RHYS</span> "I don't play to win. I play so Doggo notices me."</div>
+    <div class="legendQuote"><span class="qwho">WILLOW</span> "Doggo carried our whole ranked season. Absolute unit."</div>
+    <div class="legendQuote"><span class="qwho">DOGGO</span> "Woof." — translated from legend speech</div>
+  </div>
+  <div class="legendRank">♛ #1 ALL-TIME — UNTOUCHABLE ♛</div>
+  <div class="legendBones">🦴 🦴 🦴 🦴 🦴</div>
 </div>
 
 <div class="panel">
@@ -333,7 +398,17 @@ var WILLOW_LINES = [
   "Willow rage mode activates at exactly 5:34.",
   "These stage lights >>> Rhys's whole setup.",
   "Somebody sync the bots to the beat!",
-  "Rhys if you kick me from the stage I'm uninstalling."
+  "Rhys if you kick me from the stage I'm uninstalling.",
+  "DOGGO IS ON THE STAGE. THE LEGEND HIMSELF.",
+  "Everyone bow. Doggo just walked in.",
+  "Did Doggo really just one-shot the Root Titan? Legend.",
+  "Nobody touches Doggo's leaderboard spot. EVER."
+];
+var RHYS_BONUS = [
+  "DOGGO SIGHTING! The Legend is in the building!",
+  "I saw Doggo hit a 360 no-scope mid-wag. Unreal.",
+  "All hail Doggo, the PlayTree Legend.",
+  "Doggo's win streak is still 9999. We can never catch up."
 ];
 var SYS_LINES = [
   "System: 12 player bots synced to the dance floor.",
@@ -353,7 +428,10 @@ function nextLine(){
   }
   speaker = speaker === "rhys" ? "willow" : "rhys";
   if (speaker === "rhys"){
-    addMsg("RHYS", RHYS_LINES[Math.floor(Math.random()*RHYS_LINES.length)], "rhys");
+    var txt = (Math.random() < 0.25 && typeof RHYS_BONUS !== "undefined")
+      ? RHYS_BONUS[Math.floor(Math.random()*RHYS_BONUS.length)]
+      : RHYS_LINES[Math.floor(Math.random()*RHYS_LINES.length)];
+    addMsg("RHYS", txt, "rhys");
   } else {
     addMsg("WILLOW", WILLOW_LINES[Math.floor(Math.random()*WILLOW_LINES.length)], "willow");
   }
@@ -418,6 +496,20 @@ function spawnBots(n){
 function spawnStars(){
   if (!mjEl){ mjEl = makeDancer("MJ", "mj"); mjEl.classList.add("db"); crowd.appendChild(mjEl); }
   if (!kvEl){ kvEl = makeDancer("KING VON", "kv"); kvEl.classList.add("dc"); crowd.appendChild(kvEl); }
+  /* Doggo the Legend dances in the center */
+  if (!document.getElementById("doggoDancer")){
+    var d = makeDancer("DOGGO ★", null);
+    d.id = "doggoDancer";
+    d.className = "dancer dancing db star mj";
+    d.style.order = "0";
+    d.querySelector(".head").style.background = "#d2a15a";
+    d.querySelector(".body").style.background = "linear-gradient(180deg,#FFD700,#ff9500)";
+    d.querySelector(".nametag").style.color = "#FFD700";
+    d.querySelector(".nametag").style.border = "1px solid #FFD700";
+    d.querySelector(".nametag").style.fontWeight = "900";
+    d.title = "DOGGO — The PlayTree Legend";
+    crowd.appendChild(d);
+  }
 }
 
 /* keep dance styles cycling */
@@ -600,7 +692,10 @@ function goLive(){
 
   setTimeout(function(){ addMsg("WILLOW", "The bots are dancing! Look at them go!", "willow"); }, 3000);
   setTimeout(function(){ addMsg("RHYS", "King Von and MJ are on stage right now. Insane.", "rhys"); }, 7000);
-  setTimeout(function(){ addMsg("WILLOW", "Hit the GOLD COIN RAIN button, I want to see chaos!", "willow"); }, 11000);
+  setTimeout(function(){ addMsg("RHYS", "DOGGO JUST ARRIVED. THE LEGEND IS HERE!", "rhys"); }, 9000);
+  setTimeout(function(){ addMsg("WILLOW", "All hail Doggo. Nobody's beating that win streak.", "willow"); }, 13000);
+  setTimeout(function(){ addMsg("WILLOW", "Hit the GOLD COIN RAIN button, I want to see chaos!", "willow"); }, 17000);
+  setTimeout(function(){ toast("🐕 DOGGO THE LEGEND HAS ENTERED", "gold"); }, 9500);
 
   /* auto start music if not already */
   if (!musicPlaying) toggleMusic();
@@ -796,6 +891,8 @@ if (LIVE){
   /* subtle pre-show chat */
   setTimeout(function(){ addMsg("WILLOW", "These bots dance better than Rhys honestly.", "willow"); }, 5000);
   setTimeout(function(){ addMsg("RHYS", "Wow. Thanks Willow. Very supportive.", "rhys"); }, 9000);
+  setTimeout(function(){ addMsg("RHYS", "Remember everyone — scroll down and pay respects to Doggo. The Legend.", "rhys"); }, 14000);
+  setTimeout(function(){ toast("🐕 DOGGO — THE PLAYTREE LEGEND", "gold"); }, 2500);
 }
 })();
 </script>
