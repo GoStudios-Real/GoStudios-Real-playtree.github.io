@@ -3,6 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PlayTree Corporation — GoConsole Game Studios</title>
+<meta name="description" content="PlayTree Chapter 1 Season 1 launches September 25, 2026 — countdown timer.">
 <style>
   body{margin:0;font-family:Courier New,monospace;background:#0A2F56;color:#E0FFE0}
   a{color:#7ED321;text-decoration:none}
@@ -12,16 +13,74 @@
   .panel{max-width:900px;margin:30px auto;background:rgba(0,0,0,0.7);border:2px solid #2F6B00;border-radius:10px;padding:20px}
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
   .card{background:#1a2a1a;border:1px solid #2F6B00;border-radius:8px;padding:12px}
+  .cdpanel{max-width:900px;margin:30px auto;background:linear-gradient(160deg,#0d1f0d 0%,#071607 100%);border:3px solid #7ED321;border-radius:14px;padding:30px;text-align:center;box-shadow:0 0 40px rgba(126,211,33,0.25), inset 0 0 60px rgba(126,211,33,0.05)}
+  .cdtitle{font-size:28px;font-weight:900;letter-spacing:3px;color:#7ED321;text-shadow:2px 2px #000;margin:0 0 6px}
+  .cdsub{font-size:14px;color:#9dce8a;letter-spacing:2px;margin:0 0 24px}
+  .cdrow{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+  .cdbox{background:rgba(0,0,0,0.55);border:2px solid #2F6B00;border-radius:10px;padding:14px 10px;min-width:96px}
+  .cdnum{font-size:44px;font-weight:900;color:#7ED321;text-shadow:0 0 12px rgba(126,211,33,0.6);line-height:1}
+  .cdlab{font-size:11px;color:#9dce8a;letter-spacing:2px;margin-top:6px;text-transform:uppercase}
+  .cddate{margin-top:22px;font-size:13px;color:#69a35c;letter-spacing:1px}
+  .live{display:inline-block;width:9px;height:9px;background:#ff3b3b;border-radius:50%;margin-right:7px;animation:pulse 1s infinite}
+  @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 8px #ff3b3b}50%{opacity:.35;box-shadow:0 0 2px #ff3b3b}}
+  @keyframes glow{0%,100%{box-shadow:0 0 40px rgba(126,211,33,0.25)}50%{box-shadow:0 0 70px rgba(126,211,33,0.5)}}
+  .cdpanel{animation:glow 3s ease-in-out infinite}
+  .done .cdnum{color:#FFD700;text-shadow:0 0 18px rgba(255,215,0,0.8)}
+  .s1banner{background:linear-gradient(90deg,#7ED321,#2F6B00);color:#000;padding:8px 16px;border-radius:6px;font-weight:900;letter-spacing:2px;display:inline-block;margin-bottom:16px;font-size:13px}
 </style>
 <div class="hero">
   <div class="logo">PLAYTREE</div>
   <div style="color:#FF0;transform:rotate(-8deg);font-weight:900">Beta!!!</div>
-  <p>Chapter 0 : Season 0 — Stylized multiplayer fantasy adventure</p>
+  <p>Chapter 1 : Season 1 arrives September 25, 2026 at 5:34 PM</p>
   <p>PlayTree Corporation • GoConsole Game Studios • GoStudios • 2026</p>
   <a class="lime" href="https://playtree-corporation.itch.io/playtree">itch.io PLAYTREE</a>
   <a class="lime" href="PLAYTREE.exe" download>Download PLAYTREE.exe</a>
   <a class="lime" href="PLAYTREE Setup.exe" download>Setup</a>
 </div>
+<div class="cdpanel" id="cdpanel">
+  <div class="s1banner">CHAPTER 1 : SEASON 1</div>
+  <div class="cdtitle"><span class="live"></span>LIVE COUNTDOWN</div>
+  <div class="cdsub">THE NEXT CHAPTER BEGINS</div>
+  <div class="cdrow">
+    <div class="cdbox"><div class="cdnum" id="cd-d">--</div><div class="cdlab">Days</div></div>
+    <div class="cdbox"><div class="cdnum" id="cd-h">--</div><div class="cdlab">Hours</div></div>
+    <div class="cdbox"><div class="cdnum" id="cd-m">--</div><div class="cdlab">Minutes</div></div>
+    <div class="cdbox"><div class="cdnum" id="cd-s">--</div><div class="cdlab">Seconds</div></div>
+  </div>
+  <div class="cddate" id="cd-note">September 25, 2026 — 5:34 PM (local time)</div>
+</div>
+<script>
+(function(){
+  // 25 September 2026, 17:34 local time
+  var target = new Date(2026, 8, 25, 17, 34, 0).getTime();
+  function pad(n){ return n < 10 ? "0" + n : "" + n; }
+  function tick(){
+    var now = Date.now();
+    var diff = target - now;
+    if (diff <= 0){
+      document.getElementById("cd-d").textContent = "00";
+      document.getElementById("cd-h").textContent = "00";
+      document.getElementById("cd-m").textContent = "00";
+      document.getElementById("cd-s").textContent = "00";
+      document.getElementById("cd-note").textContent = "CHAPTER 1 : SEASON 1 IS LIVE NOW!";
+      document.getElementById("cdpanel").classList.add("done");
+      document.querySelector(".live").style.background = "#7ED321";
+      document.querySelector(".cdsub").textContent = "PLAY NOW";
+      return;
+    }
+    var s = Math.floor(diff / 1000);
+    var d = Math.floor(s / 86400); s -= d * 86400;
+    var h = Math.floor(s / 3600);  s -= h * 3600;
+    var m = Math.floor(s / 60);    s -= m * 60;
+    document.getElementById("cd-d").textContent = pad(d);
+    document.getElementById("cd-h").textContent = pad(h);
+    document.getElementById("cd-m").textContent = pad(m);
+    document.getElementById("cd-s").textContent = pad(s);
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
+</script>
 <div class="panel">
   <h2>Lore — 4 Rounds</h2>
   <p>1 Forest Awakening — Root Titan • 2 Crystal Depths — Hydra • 3 Storm Peaks — Sky Guardian • 4 Hollow Throne — Hollow King</p>
