@@ -11,3 +11,11 @@ Live site: https://gostudios-real.github.io/GoStudios-Real-playtree.github.io/
 - PlayTree-App: https://github.com/GoStudios-Real/PlayTree-App
 
 © GoStudios. See repository license for details.
+
+
+---
+
+## OpenCode
+
+This repository is maintained with [OpenCode](https://opencode.ai).
+Hub: https://gostudios-real.github.io/
